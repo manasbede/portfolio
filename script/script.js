@@ -92,37 +92,17 @@ function toggleMenu() {
 }
 
 
-// Function to enforce mobile-specific visibility
-function adjustHeaderForMobile() {
-    const header = document.querySelector('header');
-    const aboutLeft = document.querySelector('.about-left');
-    const aboutRight = document.querySelector('.about-right');
-    const nav = document.querySelector('nav');
-
-    if (window.innerWidth <= 768) {
-        // Mobile view: Show nav and about-left only
-        header.style.display = 'block';
-        nav.style.display = 'flex';
-        aboutLeft.style.display = 'block';
-        aboutRight.style.display = 'none'; // Hide about-right
-    } else {
-        // Desktop view: Show all sections
-        header.style.display = 'flex';
-        nav.style.display = 'flex';
-        aboutLeft.style.display = 'flex';
-        aboutRight.style.display = 'flex';
-    }
-}
-
-// Add event listeners to handle window resize and initial load
-window.addEventListener('resize', adjustHeaderForMobile);
-window.addEventListener('DOMContentLoaded', adjustHeaderForMobile);
 
 
 
 // Initialize functions when the page loads
 window.onload = function () {
-    adjustHeaderForMobile();
+    if (window.innerWidth <= 768) {
+        const aboutContainer = document.querySelector('.about-container');
+        if (aboutContainer) {
+            aboutContainer.style.display = 'none';
+        }
+    }
     typewriterEffect(); // Start the typewriter effect
     toggleMenu(); // Initialize the hamburger menu toggle
 };

@@ -297,25 +297,33 @@
         }
     </script> -->
     <script>
-        function showOnlyNavBar() {
+        // Function to enforce visibility of nav only in mobile view
+        function enforceNavOnlyForMobile() {
             const header = document.querySelector('header');
             const nav = document.querySelector('nav');
-            const otherHeaderContent = document.querySelectorAll('header > *:not(nav)');
+            const allHeaderContent = Array.from(header.children).filter(
+                (child) => child !== nav
+            );
 
-            // Ensure the nav bar is visible
-            if (nav) {
-                nav.style.display = 'flex';
+            if (window.innerWidth <= 768) {
+                // Mobile view: Show only nav
+                nav.style.display = 'flex'; // Ensure nav is visible
+                allHeaderContent.forEach((child) => {
+                    child.style.display = 'none'; // Hide other header content
+                });
+            } else {
+                // Desktop view: Show all header content
+                nav.style.display = 'flex'; // Ensure nav remains visible
+                allHeaderContent.forEach((child) => {
+                    child.style.display = ''; // Reset to default visibility
+                });
             }
-
-            // Hide all other content in the header
-            otherHeaderContent.forEach((element) => {
-                element.style.display = 'none';
-            });
         }
 
-        // Force the function to run on page load and window resize
-        window.addEventListener('resize', showOnlyNavBar);
-        window.addEventListener('DOMContentLoaded', showOnlyNavBar);
+        // Add event listeners to handle window resize and initial load
+        window.addEventListener('resize', enforceNavOnlyForMobile);
+        window.addEventListener('DOMContentLoaded', enforceNavOnlyForMobile);
+
     </script>
 </body>
 </html>

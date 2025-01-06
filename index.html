@@ -20,9 +20,9 @@
             <div class="container">
                 <a href="#home" class="brand brand-name" style="color: #f3f4f6;">Manas Bedekar</a>
                 <button id="menu-toggle" class="menu-toggle">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
                 </button>
-                <ul class="nav-links hidden">
+                <ul class="nav-links">
                     <li><a href="#home" class="nav-button">Home</a></li>
                     <li><a href="#projects" class="nav-button">Projects</a></li>
                     <li><a href="#experience" class="nav-button">Experience</a></li>
@@ -285,6 +285,22 @@
     
 
     <script>
+        
+        // Function to toggle the hamburger menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('visible'); // Toggle visibility
+        });
+
+        // Optional: Close menu when a link is clicked (for usability)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('visible');
+            });
+        });
+
         function toggleTheme() {
             const body = document.body;
             const themeButton = document.getElementById("theme-button");

@@ -116,71 +116,50 @@ nav .nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Hamburger Menu (hidden on desktop) */
+/* Hamburger Menu Styles */
 #menu-toggle {
-    display: none;
+    display: none; /* Hidden by default for desktop */
     font-size: 1.5rem;
     color: #f3f4f6;
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 1100; /* Ensure it stays on top */
 }
 
-/* Mobile View */
+/* Show Hamburger Icon in Mobile */
 @media (max-width: 768px) {
-    nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: #090b0f; /* Keep the current theme background */
-        z-index: 10;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    #menu-toggle {
+        display: block;
     }
 
     .nav-links {
         display: none; /* Hidden by default for mobile */
-        position: fixed;
-        top: 60px; /* Position below the navbar */
+        position: absolute;
+        top: 60px; /* Below the navbar */
         right: 0;
         width: 100%;
-        max-height: 50vh; /* Limit height to half of the viewport for scrolling */
-        overflow-y: auto; /* Add vertical scrolling */
-        background: #090b0f; /* Same theme as the navbar */
+        background: #090b0f; /* Match theme */
         flex-direction: column;
-        padding: 15px 10px;
+        gap: 10px;
+        padding: 10px 0;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         z-index: 1000;
     }
 
     .nav-links.visible {
-        display: flex;
+        display: flex; /* Show menu when toggled */
     }
 
-    header {
-        padding-top: 80px; /* Ensure the header content starts below the fixed navbar */
-        overflow-y: auto; /* Allow scrolling for header content */
-        max-height: calc(100vh - 60px); /* Limit the height of the header to viewport height minus navbar height */
+    .nav-links a {
+        text-align: center; /* Center-align menu items */
+        padding: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional border for separation */
     }
 
-    .about-container {
-        padding: 15px; /* Add padding for mobile view */
-        flex-direction: column; /* Stack content vertically */
-        text-align: center;
-    }
-
-    .about-left, .about-right {
-        width: 100%; /* Ensure full width for mobile */
-        margin: 10px 0; /* Add spacing between sections */
-    }
-
-    .profile-pic {
-        max-width: 120px; /* Resize profile picture for mobile */
-        margin: 0 auto; /* Center align the picture */
+    .nav-links a:last-child {
+        border-bottom: none; /* Remove bottom border for last item */
     }
 }
 

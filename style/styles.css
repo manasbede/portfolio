@@ -79,7 +79,6 @@ nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-
 nav .container {
     display: flex;
     justify-content: space-between;
@@ -89,14 +88,24 @@ nav .container {
     margin: 0 auto;
 }
 
+nav .brand-name {
+    font-weight: bold;
+    color: #f3f4f6;
+    text-decoration: none;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
 nav .nav-links {
     display: flex;
     list-style: none;
     gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 nav .nav-links li {
-    margin-left: 20px;
+    display: inline-block;
 }
 
 nav .nav-links a {
@@ -105,49 +114,50 @@ nav .nav-links a {
     padding: 5px 10px;
     border-radius: 5px;
     transition: background 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 nav .nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-}
-/* Hamburger Menu */
-#menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    color: #f3f4f6;
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
-/* Responsive Navbar */
+#menu-toggle {
+    display: none;
+}
+
+/* Mobile View */
 @media (max-width: 768px) {
     #menu-toggle {
         display: block;
+        font-size: 1.5rem;
+        color: #f3f4f6;
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 
-    .nav-links {
+    nav .nav-links {
         display: none;
         position: absolute;
         top: 100%;
         right: 0;
-        background: #090b0f;
         flex-direction: column;
-        gap: 10px;
-        padding: 15px;
+        background: #090b0f;
+        padding: 10px 15px;
         border-radius: 5px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        gap: 10px;
     }
 
-    .nav-links.visible {
+    nav .nav-links.visible {
         display: flex;
     }
 
-    .nav-links a {
-        text-align: left;
+    nav .nav-links a {
+        padding: 10px;
     }
 }
+
 
 
 
@@ -213,6 +223,8 @@ body.dark-mode .button {
 section {
     padding-left: 50px;
     padding-right: 50px;
+    padding-bottom: 10px;
+    scroll-margin: 100px;
     background: #f9fafb;
     margin-top: 20px;
     border-radius: 10px;
@@ -846,13 +858,10 @@ body.dark-mode .skills-icons span {
 
 
 
-
-
-
 /*                   Achievement List                         */
 /* Achievements Section Container */
 .achievements-container {
-    width: 100%; /* Full width of the section */
+    width: 97%; /* Full width of the section */
     padding: 1rem;
     background: var(--card-bg); /* Theme-aware background */
     border: 1px solid var(--card-border); /* Theme-aware border */

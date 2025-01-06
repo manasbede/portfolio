@@ -93,6 +93,12 @@ function toggleMenu() {
 
 // Initialize functions when the page loads
 window.onload = function () {
+    if (window.innerWidth <= 768) {
+        const header = document.querySelector('header');
+        if (header) {
+            header.style.display = 'none';
+        }
+    }
     typewriterEffect(); // Start the typewriter effect
     toggleMenu(); // Initialize the hamburger menu toggle
 };

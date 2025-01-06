@@ -128,31 +128,59 @@ nav .nav-links a:hover {
 
 /* Mobile View */
 @media (max-width: 768px) {
-    /* Hamburger button visible on mobile */
-    #menu-toggle {
-        display: block;
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: #090b0f; /* Keep the current theme background */
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Hide nav-links by default on mobile */
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 10px;
+        display: none; /* Hidden by default for mobile */
+        position: fixed;
+        top: 60px; /* Position below the navbar */
+        right: 0;
+        width: 100%;
+        max-height: 50vh; /* Limit height to half of the viewport for scrolling */
+        overflow-y: auto; /* Add vertical scrolling */
+        background: #090b0f; /* Same theme as the navbar */
         flex-direction: column;
-        background: #090b0f;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        padding: 15px 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
 
-    /* Show nav-links when the visible class is toggled */
     .nav-links.visible {
         display: flex;
     }
 
-    .nav-links a {
-        padding: 10px;
+    header {
+        padding-top: 80px; /* Ensure the header content starts below the fixed navbar */
+        overflow-y: auto; /* Allow scrolling for header content */
+        max-height: calc(100vh - 60px); /* Limit the height of the header to viewport height minus navbar height */
+    }
+
+    .about-container {
+        padding: 15px; /* Add padding for mobile view */
+        flex-direction: column; /* Stack content vertically */
+        text-align: center;
+    }
+
+    .about-left, .about-right {
+        width: 100%; /* Ensure full width for mobile */
+        margin: 10px 0; /* Add spacing between sections */
+    }
+
+    .profile-pic {
+        max-width: 120px; /* Resize profile picture for mobile */
+        margin: 0 auto; /* Center align the picture */
     }
 }
 

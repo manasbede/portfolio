@@ -160,20 +160,9 @@ nav .nav-links a:hover {
     }
 }
 
-/* Header Adjustments for Mobile */
 @media (max-width: 768px) {
-    .about-left {
-        display: block; /* Ensure left container is visible */
-        width: 100%; /* Take full width for better alignment */
-    }
-
-    .about-right {
-        display: none; /* Hide the right container in mobile view */
-    }
-
-    .about-container {
-        flex-direction: column; /* Stack items vertically */
-        text-align: center; /* Align the content to the center for mobile */
+    header {
+        display: none; /* Hide the entire header section */
     }
 }
 

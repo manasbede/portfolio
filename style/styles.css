@@ -93,7 +93,6 @@ nav .brand-name {
     color: #f3f4f6;
     text-decoration: none;
     font-size: 1.5rem;
-    flex-shrink: 0;
 }
 
 nav .nav-links {
@@ -104,59 +103,60 @@ nav .nav-links {
     padding: 0;
 }
 
-nav .nav-links li {
-    display: inline-block;
+/* Hidden by default on mobile */
+.nav-links {
+    display: flex;
 }
 
-nav .nav-links a {
+.nav-links a {
     text-decoration: none;
     color: #f9fafb;
     padding: 5px 10px;
     border-radius: 5px;
     transition: background 0.3s ease;
-    white-space: nowrap; /* Prevent text wrapping */
+    text-align: left;
 }
 
-nav .nav-links a:hover {
+.nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
 #menu-toggle {
-    display: none;
+    display: none; /* Only show hamburger on mobile */
+    font-size: 1.5rem;
+    color: #f3f4f6;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-/* Mobile View */
+/* Responsive Styles for Mobile View */
 @media (max-width: 768px) {
     #menu-toggle {
         display: block;
-        font-size: 1.5rem;
-        color: #f3f4f6;
-        background: none;
-        border: none;
-        cursor: pointer;
     }
 
-    nav .nav-links {
-        display: none;
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
         position: absolute;
         top: 100%;
-        right: 0;
+        right: 10px;
         flex-direction: column;
         background: #090b0f;
-        padding: 10px 15px;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        gap: 10px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
     }
 
-    nav .nav-links.visible {
-        display: flex;
+    .nav-links.visible {
+        display: flex; /* Show links when visible class is added */
     }
 
-    nav .nav-links a {
+    .nav-links a {
         padding: 10px;
     }
 }
+
 
 
 

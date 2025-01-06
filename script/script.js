@@ -74,6 +74,16 @@ function typewriterEffect() {
     type(); // Start the typewriter effect
 }
 
+
+
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+// Toggle the "visible" class on the nav-links when the hamburger menu is clicked
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("visible");
+});
+
 // Initialize the typewriter effect when the page loads
 window.onload = typewriterEffect;
 

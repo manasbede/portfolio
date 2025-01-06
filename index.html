@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manas Bedekar - Portfolio</title>
+    <script src="script/script.js"></script>
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+
+ 
+</head>
+<body>
+    <header id="home" class="section" style="padding-top: 80px;">
+        <nav style="background: #131c2c;">
+            <div class="container">
+                <a href="#home" class="brand brand-name" style="color: #f3f4f6;"><span>Manas Bedekar</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-button">Home</a></li>
+                    <li><a href="#projects" class="nav-button">Projects</a></li>
+                    <li><a href="#experience" class="nav-button">Experience</a></li>
+                    <li><a href="#skills" class="nav-button">Skills</a></li>
+                    <li><a href="#achievements" class="nav-button">Achievements</a></li>
+                    <li><a href="assets/Manas_Resume_DevOps.pdf" class="nav-button" target="_blank" download>CV</a></li>
+                </ul>
+                <button id="theme-button" class="theme-button" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="about-container">
+            <!-- Left Section: Photo, Role, University, Links -->
+            <div class="about-left">
+                <div class="about-image">
+                    <img src="assets/Manas.jpg" alt="Manas Bedekar Profile Picture" class="profile-pic">
+                </div>
+                <div class="bio-links-container">
+                    <h1>Manas Bedekar</h1>
+                    <p class="subtitle">
+                        <span id="typewriter-text"></span>
+                    </p>
+                    <p><a href="https://www.mcgill.ca/" class="university-link">McGill University</a></p>
+                </div>
+                                           
+                <div class="social-icons">
+                    <a href="mailto:manas.bedekar@mail.mcgill.ca"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/manas-bedekar/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/manasbede"><i class="fab fa-github"></i></a>
+                    <a href="https://orcid.org/0009-0003-1241-8287"><i class="ai ai-orcid"></i></a>
+                    <a href="https://scholar.google.ca/citations?user=qm2yBaEAAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
+                </div>
+            </div>
+            <!-- Right Section: Biography, Interests, Education -->
+            <div class="about-right">
+                <h2>Biography</h2>
+                <p> 
+                    I am a graduate student in Electrical and Computer Engineering at McGill University with expertise in DevOps, cloud computing, and scalable software development. I have hands-on experience designing CI/CD pipelines, automating infrastructure with Terraform and Ansible, and deploying containerized applications using Kubernetes. </p>
+                <p>Passionate about learning and problem-solving, I aim to contribute to impactful, real-world projects that drive innovation and efficiency. My goal is to create impactful tools that solve real-world problems. Check out my noteworthy projects and open-source contributions on <a href="https://github.com/manasbede" style="color:#2563eb;">GitHub</a>.</p>
+                <div class="details-section">
+                    <div class="details-subsection">
+                        <h3>Interests</h3>
+                        <ul>
+                            <li>DevOps and CI/CD Automation</li>
+                            <li>Containerization and Microservices</li>
+                            <li>Cloud Computing and Scalability</li>
+                            <li>Generative AI and Ethical AI Development</li>
+                            <li>Data Analysis and Machine Learning</li>
+                        </ul>
+                    </div>
+
+                    <div class="details-subsection">
+                        <h3>Education</h3>
+                        <ul class="fa-ul education-list">
+                            <li><i class="fa-li fas fa-graduation-cap theme-icon"></i> <strong>Master of Science - Electrical & Computer Engineering</strong> (Expected 2025)<br>McGill University</li>
+                            <li><i class="fa-li fas fa-graduation-cap theme-icon"></i> <strong>Bachelor of Engineering - Electronics and Telecommunication</strong> (2021)<br>Savitribai Phule Pune University</li>
+                        </ul>
+                    </div>                 
+                                        
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects-container">
+            <a href="https://github.com/manasbede/DevOps-Dialect-Editor" target="_blank" class="project-card" style="background-image: url('assets/DevOps_Dialect_Editor.png');">
+                <h3>A Multi-Platform Specification Language for DevOps Pipelines</h3>
+                <p>Developed a robust environment for analyzing and managing DevOps pipeline specifications across multiple platforms</p>
+                <ul class="project-details">
+                    <li>Covers dialects from GitHub Actions, GitLab, Azure DevOps, and 3 others</li>
+                    <li>Includes a dataset reproduction process for open-source pipelines</li>
+                    <li>Supports automatic pattern recognition and self-adaptable language features</li>
+                </ul>
+            </a>
+            <a href="https://github.com/manasbede/Stock_Predictor" target="_blank" class="project-card" style="background-image: url('assets/Stock_Image.png');">
+                <h3>Stock Prediction using Fundamental Financial Data</h3>
+                <p>Developed a generalized deep learning-based model to predict stock prices for the next quarter based on fundamental financial information</p>
+                <ul class="project-details">
+                    <li>Achieved 16.8% MAPE with diverse sector stock consistency</li>
+                    <li>Built models using CNN and Bidirectional LSTMs</li>
+                    <li>2nd Runner-up in the McGill-FIAM Asset Management Hackathon among 66 teams</li>
+                </ul>
+            </a>
+            <a href="https://github.com/manasbede/APECS" target="_blank" class="project-card" style="background-image: url('assets/EmailRanking.png');">
+                <h3>Context-based Email Ranking System for Enterprise</h3>
+                <p>Designed a system to improve email sorting efficiency using content and communication frequency</p>
+                <ul class="project-details">
+                    <li>Achieved 90% accuracy in identifying relevant emails</li>
+                    <li>Implemented topic modeling to recommend top N emails</li>
+                    <li>Reduced employee email management time by 30%</li>
+                </ul>
+            </a>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="experience-container">
+            <!-- Experience 1 -->
+            <div class="experience-card">
+                <h3>Amdocs Development Centre India LLP</h3>
+                <p><strong>Software Engineering Associate</strong> (Aug 2021 - Jul 2023)</p>
+                <ul>
+                    <li>Designed and implemented CI/CD pipelines in Jenkins, reducing deployment time by 80% and improving system reliability across production environments.</li>
+                    <li>Designed and developed installation scripts for business system support applications using Bash and JBoss.</li>
+                    <li>Automated routine tasks using Ansible and Shell scripting, achieving a 60% reduction in manual efforts and saving over 22 hours weekly.</li>
+                    <li>Managed Kubernetes-based container orchestration to ensure scalable and efficient deployments for enterprise-level applications.</li>
+                    <li>Troubleshot and resolved critical issues in production and non-production environments, enhancing system stability by 75%.</li>
+                    <li>Collaborated with cross-functional teams to align technical solutions with business objectives and improve deployment workflows.</li>
+                </ul>
+            </div>
+            <!-- Experience 2 -->
+            <div class="experience-card">
+                <h3>McGill University</h3>
+                <p><strong>Researcher</strong> (Sep 2023 - Present)</p>
+                <ul>
+                    <li>Designed and developed a multi-platform editor and domain-specific language (DSL) for analyzing DevOps pipeline
+                        specifications, supporting platforms like GitHub Actions, GitLab, and Azure DevOps</li>
+                    <li>Engineered automated processes for extracting, preprocessing, and validating heterogeneous datasets comprising over
+                        42,000 pipeline specifications from open-source repositories</li>
+                    <li>Implemented features for syntax highlighting, dialect detection, and cross-platform compatibility, enhancing usability for
+                        researchers and developers</li>
+                </ul>
+
+                <p><strong>Graduate Teaching Assistant</strong> (Sep 2023 - Present)</p>
+                <ul>
+                    <li>Fall 2023: Model-Based Programming, Software Requirement Engineering</li>
+                    <li>Winter 2024: Model-Based Programming, Introduction to Software Engineering</li>
+                    <li>Summer 2024: Introduction to Machine Learning</li>
+                    <li>Fall 2024: Model-Based Programming, Software Requirement Engineering, Computer Systems, Computer Networks</li>
+                    <li>Winter 2025: Model-Based Programming, Advanced Software Language Engineering</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-card">
+            <!-- DevOps -->
+            <div class="skills-row">
+                <h3>DevOps Practices</h3>
+                <div class="skills-icons">
+                    <img src="assets/ansible.png" alt="Ansible" title="Ansible" />
+                    <img src="assets/jenkins.png" alt="Jenkins" title="Jenkins" />
+                    <img src="assets/githubactions.png" alt="GitHub Actions" title="GitHub Actions" />
+                    <img src="assets/gitlab.png" alt="GitLab" title="GitLab" />
+                    <img src="assets/azure.png" alt="Azure DevOps" title="Azure DevOps" />
+                    <img src="assets/k8.png" alt="K8" title="K8" />
+                    <img src="assets/docker.png" alt="Docker" title="Docker" />
+                </div>
+            </div>
+
+            <!-- Programming Languages -->
+            <div class="skills-row">
+                <h3>Languages</h3>
+                <div class="skills-icons">
+                    <img src="assets/C.png" alt="C" title="C" />
+                    <img src="assets/CPP.png" alt="C++" title="C++" />
+                    <img src="assets/python.png" alt="Python" title="Python" />
+                    <img src="assets/java.png" alt="Java" title="Java" />
+                    <img src="assets/R.png" alt="R" title="R" />
+                    <img src="assets/bash.png" alt="Bash" title="Bash" />
+                </div>
+            </div>
+    
+            <!-- Web Development -->
+            <div class="skills-row">
+                <h3>Web Development</h3>
+                <div class="skills-icons">
+                    <img src="assets/html.png" alt="HTML" title="HTML" />
+                    <img src="assets/css.png" alt="CSS" title="CSS" />
+                    <img src="assets/bootstrap.png" alt="Bootstap" title="Bootstap" />
+                    <img src="assets/react.png" alt="React" title="React" />
+                    <img src="assets/js.png" alt="JS" title="JS" />
+
+                </div>
+            </div>
+    
+            <!-- Cloud and Database -->
+            <div class="skills-row">
+                <h3>Cloud and Database</h3>
+                <div class="skills-icons">
+                    <img src="assets/azure.png" alt="Azure" title="Azure" />
+                    <img src="assets/mysql.png" alt="MySQL" title="MySQL" />
+                    <img src="assets/mongodb.png" alt="MongoDB" title="MongoDB" />
+                    <img src="assets/psql.png" alt="PostgreSQL" title="PostgreSQL" />
+                </div>
+            </div>
+    
+            <!-- Frameworks -->
+            <div class="skills-row">
+                <h3>Frameworks</h3>
+                <div class="skills-icons">
+                    <img src="assets/spring.png" alt="SpringBoot" title="SpringBoot" />
+                    <img src="assets/django.png" alt="Django" title="Django" />
+                    <img src="assets/flask.png" alt="Flask" title="Flask" />
+                    <img src="assets/tomcat.png" alt="Apache" title="Apache" />
+                </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="skills-row">
+                <h3>Data Science</h3>
+                <div class="skills-icons">
+                    <img src="assets/tensorflow.png" alt="TensorFlow" title="TensorFlow" />
+                    <img src="assets/numpy.png" alt="Numpy" title="Numpy" />
+                    <img src="assets/pandas.png" alt="Pandas" title="Pandas" />
+                    <img src="assets/spark.png" alt="Spark" title="Spark" />
+                </div>
+            </div>
+        </div>
+    </section>
+    
+      
+
+
+    <section id="achievements" class="section">
+        <h2>Achievements</h2>
+        <div class="achievements-container">
+            <ul class="achievements-list">
+                <li>
+                    <p>2nd Runner-up at the McGill-FIAM Asset Management Hackathon 2024: Out of a total of 66 teams, secured a spot in the top 10 finalists with an innovative approach to portfolio optimization.</p>
+                    <p></p>
+                    <p></p>
+                    <img src="assets/hackathon.jpeg" alt="Hackathon Award" title="Hackathon Award">
+                </li>
+                <li>
+                    <p>Published a research paper on "A Multi-Platform Specification Language for DevOps Pipelines" at ACM/IEEE SAM/MODELS 2024.</p>
+                    <p></p>
+                    <p></p>
+                    <img src="assets/MODELS24-Web-17.jpg" alt="Research Paper" title="Research Paper">
+                </li>
+                <li>
+                    <p>Published a research paper on "Context-based Email Ranking System" at IEEE TEMSMET 2021.</p>
+                    <p></p>
+                    <p></p>
+                    <img src="assets/temsmet.png" alt="Research Paper TEMSMET" title="Research Paper TEMSMET">
+                </li>
+            </ul>
+        </div>
+        <span><p></p><p><p><p><p><p><p><p></p></p></p></p></p></p></p></span>
+    </section>
+
+
+    <div id="floating-contact-icons">
+        <a href="mailto:manasbedekar002@gmail.com" target="_blank" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/manas-bedekar/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/manasbede" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>    
+    
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeButton = document.getElementById("theme-button");
+            body.classList.toggle("dark-mode");
+            if (body.classList.contains("dark-mode")) {
+                themeButton.innerHTML = '<i class="fas fa-sun"></i>'; // Switch to light mode icon
+            } else {
+                themeButton.innerHTML = '<i class="fas fa-moon"></i>'; // Switch to dark mode icon
+            }
+        }
+
+        // Smooth scrolling with sections centered vertically
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').slice(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const elementRect = targetElement.getBoundingClientRect();
+                    const offsetPosition = elementRect.top + window.scrollY - (window.innerHeight / 2) + (elementRect.height / 2);
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

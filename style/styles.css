@@ -95,6 +95,7 @@ nav .brand-name {
     font-size: 1.5rem;
 }
 
+/* Desktop Navigation Links */
 nav .nav-links {
     display: flex;
     list-style: none;
@@ -103,26 +104,21 @@ nav .nav-links {
     padding: 0;
 }
 
-/* Hidden by default on mobile */
-.nav-links {
-    display: flex;
-}
-
-.nav-links a {
+nav .nav-links a {
     text-decoration: none;
     color: #f9fafb;
     padding: 5px 10px;
     border-radius: 5px;
     transition: background 0.3s ease;
-    text-align: left;
 }
 
-.nav-links a:hover {
+nav .nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* Hamburger Menu (hidden on desktop) */
 #menu-toggle {
-    display: none; /* Only show hamburger on mobile */
+    display: none;
     font-size: 1.5rem;
     color: #f3f4f6;
     background: none;
@@ -130,14 +126,16 @@ nav .nav-links {
     cursor: pointer;
 }
 
-/* Responsive Styles for Mobile View */
+/* Mobile View */
 @media (max-width: 768px) {
+    /* Hamburger button visible on mobile */
     #menu-toggle {
         display: block;
     }
 
+    /* Hide nav-links by default on mobile */
     .nav-links {
-        display: none; /* Hide links by default on mobile */
+        display: none;
         position: absolute;
         top: 100%;
         right: 10px;
@@ -148,8 +146,9 @@ nav .nav-links {
         box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
     }
 
+    /* Show nav-links when the visible class is toggled */
     .nav-links.visible {
-        display: flex; /* Show links when visible class is added */
+        display: flex;
     }
 
     .nav-links a {

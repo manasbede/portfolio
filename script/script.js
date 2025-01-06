@@ -1,4 +1,32 @@
-// Function to toggle theme (already present in your script)
+// Function to handle the hamburger menu toggle
+function initializeHamburgerMenu() {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menu = document.querySelector(".nav-links");
+
+    // Toggle the menu visibility
+    function toggleMenu() {
+        menu.classList.toggle("visible");
+    }
+
+    // Close the menu when a link is clicked
+    function closeMenu() {
+        if (menu.classList.contains("visible")) {
+            menu.classList.remove("visible");
+        }
+    }
+
+    // Add event listener to the menu toggle button
+    if (menuToggle) {
+        menuToggle.addEventListener("click", toggleMenu);
+    }
+
+    // Add event listener to close the menu when a link is clicked
+    document.querySelectorAll("nav .nav-links a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+    });
+}
+
+// Function to toggle theme
 function toggleTheme() {
     const body = document.body;
     const themeButton = document.getElementById("theme-button");
@@ -10,35 +38,37 @@ function toggleTheme() {
     }
 }
 
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default link behavior
+// Smooth scrolling functionality
+function initializeSmoothScrolling() {
+    document.querySelectorAll("nav a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent default link behavior
 
-        // Extract the target section ID
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
+            // Extract the target section ID
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
 
-        if (targetElement) {
-            // Get the height of the navbar
-            const navBar = document.querySelector('nav');
-            const navBarHeight = navBar ? navBar.offsetHeight : 0;
+            if (targetElement) {
+                // Get the height of the navbar
+                const navBar = document.querySelector("nav");
+                const navBarHeight = navBar ? navBar.offsetHeight : 0;
 
-            // Calculate the offset position to scroll to
-            const targetPosition = targetElement.offsetTop - navBarHeight;
+                // Calculate the offset position to scroll to
+                const targetPosition = targetElement.offsetTop - navBarHeight;
 
-            // Smooth scroll to the calculated position
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth',
-            });
-        } else {
-            console.error(`Target element with ID "${targetId}" not found.`);
-        }
+                // Smooth scroll to the calculated position
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: "smooth",
+                });
+            } else {
+                console.error(`Target element with ID "${targetId}" not found.`);
+            }
+        });
     });
-});
+}
 
-
-
+// Function for the typewriter effect
 function typewriterEffect() {
     const texts = [" Graduate Research Student ", " Software Developer "];
     const typewriterElement = document.getElementById("typewriter-text");
@@ -74,16 +104,9 @@ function typewriterEffect() {
     type(); // Start the typewriter effect
 }
 
-
-
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.querySelector(".nav-links");
-
-// Toggle the "visible" class on the nav-links when the hamburger menu is clicked
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("visible");
-});
-
-// Initialize the typewriter effect when the page loads
-window.onload = typewriterEffect;
-
+// Initialize all features when the page loads
+window.onload = function () {
+    typewriterEffect();
+    initializeHamburgerMenu();
+    initializeSmoothScrolling();
+};

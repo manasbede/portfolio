@@ -167,12 +167,12 @@ body.dark-mode .button {
 }
 
 section {
-    padding: 50px;
-    padding-top: 180px;
+    padding: 100px 20px; /* Ensure consistent padding across sections */
     background: #f9fafb;
     margin-top: 20px;
     border-radius: 10px;
-    width: 80%;
+    width: 90%; /* Use a more flexible width */
+    max-width: 1200px; /* Set a max width for large screens */
     margin: 40px auto;
 }
 
@@ -887,18 +887,15 @@ body.dark-mode .achievements-list li {
 /*            Contact Card                         */
 /* Floating Contact Icons */
 #floating-contact-icons {
-    position: fixed; /* Position the container relative to the viewport */
-    bottom: 1rem; /* Distance from the bottom of the viewport */
-    right: 1rem; /* Distance from the right of the viewport */
-    display: flex; /* Align icons horizontally */
+    position: fixed; /* Fixed to viewport */
+    bottom: 1rem; /* Distance from the bottom */
+    right: 1rem; /* Distance from the right */
+    display: flex; /* Align icons */
     flex-direction: column; /* Stack icons vertically */
     gap: 1rem; /* Space between icons */
-    background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
-    padding: 0.5rem; /* Add padding inside the container */
-    border-radius: 8px; /* Rounded edges for the container */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for container */
-    z-index: 1000; /* Ensure it appears above other content */
+    z-index: 1000; /* Ensure it's above other elements */
 }
+
 
 /* Contact Icons */
 #floating-contact-icons a {
@@ -926,3 +923,151 @@ body.dark-mode .achievements-list li {
     }
 }
 
+
+
+
+
+
+nav ul {
+    display: flex;
+    flex-direction: row; /* Default horizontal layout */
+    justify-content: flex-end; /* Align links to the right */
+    list-style: none;
+    transition: max-height 0.3s ease; /* Smooth expand/collapse */
+    overflow: hidden; /* Prevent content overflow */
+    max-height: 500px; /* Ensure it expands fully on desktop */
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        max-height: 0; /* Initially hidden */
+        flex-direction: column; /* Stack links vertically */
+        background: #131c2c; /* Add a background for mobile menu */
+        padding: 10px;
+    }
+
+    nav ul.visible {
+        max-height: 300px; /* Expand to show items */
+    }
+}
+
+.experience-card {
+    flex: 1 1 calc(50% - 1rem); /* Use consistent gaps */
+    max-width: 500px; /* Restrict max size for large screens */
+}
+
+@media (max-width: 768px) {
+    .experience-card {
+        flex: 1 1 100%; /* Full-width cards on smaller screens */
+    }
+}
+
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhance hover shadow */
+    background: rgba(255, 255, 255, 0.1); /* Add a subtle overlay effect */
+}
+
+.skills-icons img {
+    max-width: 50px; /* Restrict maximum size */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.skills-icons img:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+}
+
+
+body.dark-mode {
+    --background-color: #0e1115;
+    --text-color: #f3f4f6;
+    --card-bg: #131c2c;
+    --card-border: #374151;
+    --primary-color: #f59e0b;
+}
+
+body.dark-mode nav {
+    background: #1c2530; /* Softer dark for navbar */
+}
+
+body.dark-mode .project-card,
+body.dark-mode .experience-card {
+    background: var(--card-bg); /* Dark card background */
+    border-color: var(--card-border); /* Adjust border color */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 100px; /* Adjust for fixed header height */
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        max-height: 300px; /* Expandable height for smaller devices */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Reduce spacing */
+    }
+
+    section h2 {
+        font-size: 1.5rem; /* Smaller font for headers */
+    }
+
+    .project-card,
+    .experience-card {
+        flex: 1 1 100%; /* Full width */
+        padding: 1rem;
+    }
+
+    .skills-icons img {
+        max-width: 40px; /* Smaller icons for mobile */
+    }
+}
+
+
+/* Default styles for larger screens */
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stack navigation links vertically */
+        align-items: flex-start; /* Align links to the left */
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Add spacing between items */
+    }
+
+    section {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    h1, h2 {
+        font-size: 1.5rem; /* Reduce font size for headers */
+    }
+
+    .project-card, .experience-card {
+        flex: 1 1 100%; /* Make cards full-width on smaller screens */
+    }
+
+    .social-icons a {
+        font-size: 1.2rem; /* Adjust icon size */
+        margin: 0 0.3rem; /* Reduce spacing between icons */
+    }
+}

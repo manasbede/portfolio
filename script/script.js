@@ -66,6 +66,14 @@ function typewriterEffect() {
     type(); // Start the typewriter effect
 }
 
+const nav = document.querySelector("nav ul");
+const toggleButton = document.getElementById("menu-toggle");
+
+toggleButton.addEventListener("click", () => {
+    nav.classList.toggle("visible");
+});
+
+
 // Initialize the typewriter effect when the page loads
 window.onload = typewriterEffect;
 

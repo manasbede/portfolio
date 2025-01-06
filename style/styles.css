@@ -160,8 +160,42 @@ nav .nav-links a:hover {
     }
 }
 
+/* Adjust Header Layout for Mobile */
+@media (max-width: 768px) {
+    .about-container {
+        display: flex;
+        flex-direction: column; /* Stack sections vertically */
+        gap: 1rem; /* Add space between sections */
+        padding: 15px; /* Add padding for a neat look */
+    }
 
+    .about-left {
+        order: 1; /* Display left section first */
+        width: 100%; /* Ensure it takes full width */
+        text-align: center; /* Center-align content */
+    }
 
+    .about-right {
+        order: 2; /* Display right section second */
+        width: 100%; /* Ensure it takes full width */
+        margin: 0; /* Remove unnecessary margins */
+        text-align: justify; /* Keep text justified for readability */
+    }
+
+    .about-left .profile-pic {
+        max-width: 120px; /* Resize profile picture for mobile */
+        margin: 0 auto; /* Center align the picture */
+    }
+
+    .details-section {
+        flex-direction: column; /* Stack details vertically */
+        gap: 1rem; /* Add spacing between subsections */
+    }
+
+    .details-subsection {
+        text-align: left; /* Align text to the left for readability */
+    }
+}
 
 
 
@@ -855,35 +889,6 @@ body.dark-mode .skills-icons span {
         margin-bottom: 0.5rem;
     }
 }
-/* Adjust Skills Section for Mobile */
-@media (max-width: 768px) {
-    /* Skills Row */
-    .skills-row {
-        flex-direction: column; /* Stack category titles and icons vertically */
-        align-items: flex-start; /* Align icons to the left */
-    }
-
-    /* Skills Icons */
-    .skills-icons {
-        display: flex;
-        flex-wrap: wrap; /* Allow icons to wrap to a new line */
-        gap: 1rem; /* Add spacing between icons */
-        justify-content: flex-start; /* Align icons to the left */
-        padding-bottom: 0; /* Remove additional padding */
-        overflow-x: visible; /* Ensure no horizontal scrolling */
-    }
-
-    .skills-icons img {
-        max-width: 50px; /* Adjust size for better alignment on small screens */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    /* Category Titles */
-    .skills-row h3 {
-        margin-bottom: 0.5rem; /* Add spacing between the title and icons */
-    }
-}
-
 
 
 

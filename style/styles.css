@@ -160,11 +160,6 @@ nav .nav-links a:hover {
     }
 }
 
-@media (max-width: 768px) {
-    header {
-        display: none; /* Hide the entire header section */
-    }
-}
 
 
 

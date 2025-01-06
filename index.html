@@ -297,32 +297,36 @@
         }
     </script> -->
     <script>
-        // Function to enforce visibility of nav only in mobile view
-        function enforceNavOnlyForMobile() {
+        // Function to enforce visibility of nav and about-left only in mobile view
+        function enforceNavAndAboutLeftForMobile() {
             const header = document.querySelector('header');
             const nav = document.querySelector('nav');
+            const aboutLeft = document.querySelector('.about-left');
             const allHeaderContent = Array.from(header.children).filter(
-                (child) => child !== nav
+                (child) => child !== nav && child !== aboutLeft
             );
 
             if (window.innerWidth <= 768) {
-                // Mobile view: Show only nav
+                // Mobile view: Show only nav and about-left
                 nav.style.display = 'flex'; // Ensure nav is visible
+                if (aboutLeft) aboutLeft.style.display = 'block'; // Ensure about-left is visible
                 allHeaderContent.forEach((child) => {
                     child.style.display = 'none'; // Hide other header content
                 });
             } else {
                 // Desktop view: Show all header content
                 nav.style.display = 'flex'; // Ensure nav remains visible
+                if (aboutLeft) aboutLeft.style.display = ''; // Reset about-left visibility
                 allHeaderContent.forEach((child) => {
-                    child.style.display = ''; // Reset to default visibility
+                    child.style.display = ''; // Reset visibility for other content
                 });
             }
         }
 
         // Add event listeners to handle window resize and initial load
-        window.addEventListener('resize', enforceNavOnlyForMobile);
-        window.addEventListener('DOMContentLoaded', enforceNavOnlyForMobile);
+        window.addEventListener('resize', enforceNavAndAboutLeftForMobile);
+        window.addEventListener('DOMContentLoaded', enforceNavAndAboutLeftForMobile);
+
 
     </script>
 </body>

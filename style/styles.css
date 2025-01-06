@@ -160,55 +160,23 @@ nav .nav-links a:hover {
     }
 }
 
-/* Mobile view adjustments */
+/* Header Adjustments for Mobile */
 @media (max-width: 768px) {
-    /* Stack content vertically in header */
-    .about-container {
-        display: flex;
-        flex-direction: column; /* Stack sections */
-        gap: 1.5rem; /* Add spacing between sections */
-        padding: 1rem;
-        text-align: center; /* Center-align content by default */
-    }
-
-    /* Ensure left section appears first and full-width */
     .about-left {
-        order: 1; /* Ensure left section is displayed first */
-        width: 100%; /* Full width for mobile */
+        display: block; /* Ensure left container is visible */
+        width: 100%; /* Take full width for better alignment */
     }
 
-    /* Style for profile picture and related content */
-    .profile-pic {
-        max-width: 120px; /* Adjust size for smaller screens */
-        margin: 0 auto; /* Center-align the image */
-        border-radius: 50%; /* Ensure circular image */
-    }
-
-    /* Style for biography and details */
     .about-right {
-        order: 2; /* Ensure right section is displayed after left */
-        width: 100%; /* Full width for mobile */
-        text-align: left; /* Align text to the left for readability */
+        display: none; /* Hide the right container in mobile view */
     }
 
-    /* Adjust details section (interests and education) */
-    .details-section {
-        display: flex;
-        flex-direction: column; /* Stack details vertically */
-        gap: 1rem; /* Add spacing between details */
-    }
-
-    .details-subsection {
-        text-align: left; /* Align content for better readability */
-    }
-
-    /* Ensure header is scrollable on small screens */
-    header {
-        padding: 1rem;
-        overflow-y: auto; /* Enable vertical scrolling */
-        max-height: 100vh; /* Constrain to viewport height */
+    .about-container {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center; /* Align the content to the center for mobile */
     }
 }
+
 
 
 

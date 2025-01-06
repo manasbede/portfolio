@@ -12,24 +12,20 @@ function toggleTheme() {
 
 // Smooth scrolling with sections centered vertically (already present in your script)
 document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default link behavior
-        const targetId = this.getAttribute('href').substring(1); // Extract the section ID
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
         const targetElement = document.getElementById(targetId);
-
         if (targetElement) {
-            const headerOffset = 180; // Adjust this value based on your design
-            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-            const offsetPosition = elementPosition - headerOffset;
-
+            const elementRect = targetElement.getBoundingClientRect();
+            const offsetPosition = elementRect.top + window.scrollY - (window.innerHeight / 2) + (elementRect.height / 2);
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth', // Enable smooth scrolling
+                behavior: 'smooth'
             });
         }
     });
 });
-
 
 function typewriterEffect() {
     const texts = [" Graduate Research Student ", " Software Developer "];

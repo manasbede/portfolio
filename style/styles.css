@@ -168,6 +168,9 @@ body.dark-mode .button {
 
 section {
     padding: 100px 20px; /* Ensure consistent padding across sections */
+=======
+    padding: 50px;
+>>>>>>> parent of 2a62825 (portfolio-0.2)
     background: #f9fafb;
     margin-top: 20px;
     border-radius: 10px;

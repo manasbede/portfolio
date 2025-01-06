@@ -10,22 +10,34 @@ function toggleTheme() {
     }
 }
 
-// Smooth scrolling with sections centered vertically (already present in your script)
 document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').slice(1);
+    link.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default link behavior
+
+        // Extract the target section ID
+        const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
+
         if (targetElement) {
-            const elementRect = targetElement.getBoundingClientRect();
-            const offsetPosition = elementRect.top + window.scrollY - (window.innerHeight / 2) + (elementRect.height / 2);
+            // Get the height of the navbar
+            const navBar = document.querySelector('nav');
+            const navBarHeight = navBar ? navBar.offsetHeight : 0;
+
+            // Calculate the offset position to scroll to
+            const targetPosition = targetElement.offsetTop - navBarHeight;
+
+            // Smooth scroll to the calculated position
             window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+                top: targetPosition,
+                behavior: 'smooth',
             });
+        } else {
+            console.error(`Target element with ID "${targetId}" not found.`);
         }
     });
 });
+
+
 
 function typewriterEffect() {
     const texts = [" Graduate Research Student ", " Software Developer "];
@@ -61,14 +73,6 @@ function typewriterEffect() {
 
     type(); // Start the typewriter effect
 }
-
-const nav = document.querySelector("nav ul");
-const toggleButton = document.getElementById("menu-toggle");
-
-toggleButton.addEventListener("click", () => {
-    nav.classList.toggle("visible");
-});
-
 
 // Initialize the typewriter effect when the page loads
 window.onload = typewriterEffect;

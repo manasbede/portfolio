@@ -62,20 +62,23 @@ body.dark-mode header {
     color: #f3f4f6;
 }
 
-nav {
-    position: fixed;     /* Make sure the navbar is always at the top */
-    width: 100%;         /* Full-width navbar */
-    top: 0;              /* Position at the top of the viewport */
-    padding: 15px 0;
-    /* background: rgba(31, 41, 55, 0.95); */
-    background: #090b0f;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 10;         /* High z-index to make sure it's always on top */
-}
-
 body.dark-mode nav {
     background: rgba(15, 23, 42, 0.95);
 }
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 20px;
+    background: #090b0f;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 
 nav .container {
     display: flex;
@@ -89,6 +92,7 @@ nav .container {
 nav .nav-links {
     display: flex;
     list-style: none;
+    gap: 20px;
 }
 
 nav .nav-links li {
@@ -99,13 +103,53 @@ nav .nav-links a {
     text-decoration: none;
     color: #f9fafb;
     padding: 5px 10px;
-    transition: background 0.3s;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
 nav .nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 5px;
 }
+/* Hamburger Menu */
+#menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #f3f4f6;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #090b0f;
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.visible {
+        display: flex;
+    }
+
+    .nav-links a {
+        text-align: left;
+    }
+}
+
+
 
 .brand-name {
     font-weight: bold;
@@ -167,8 +211,8 @@ body.dark-mode .button {
 }
 
 section {
-    padding: 50px;
-    padding-top: 180px;
+    padding-left: 50px;
+    padding-right: 50px;
     background: #f9fafb;
     margin-top: 20px;
     border-radius: 10px;

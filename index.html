@@ -296,5 +296,26 @@
             }
         }
     </script> -->
+    <script>
+        function showOnlyNavBar() {
+            const header = document.querySelector('header');
+            const nav = document.querySelector('nav');
+            const otherHeaderContent = document.querySelectorAll('header > *:not(nav)');
+
+            // Ensure the nav bar is visible
+            if (nav) {
+                nav.style.display = 'flex';
+            }
+
+            // Hide all other content in the header
+            otherHeaderContent.forEach((element) => {
+                element.style.display = 'none';
+            });
+        }
+
+        // Force the function to run on page load and window resize
+        window.addEventListener('resize', showOnlyNavBar);
+        window.addEventListener('DOMContentLoaded', showOnlyNavBar);
+    </script>
 </body>
 </html>

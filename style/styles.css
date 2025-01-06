@@ -128,38 +128,35 @@ nav .nav-links a:hover {
 }
 
 /* Show Hamburger Icon in Mobile */
+/* Header Container for Mobile View */
 @media (max-width: 768px) {
+    nav .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start; /* Left-align the elements */
+        gap: 10px; /* Add space between items */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        white-space: nowrap; /* Prevent wrapping */
+    }
+
+    nav .brand-name {
+        flex-shrink: 0; /* Prevent shrinking of the brand name */
+    }
+
     #menu-toggle {
-        display: block;
+        flex-shrink: 0; /* Prevent shrinking of the menu toggle */
     }
 
-    .nav-links {
-        display: none; /* Hidden by default for mobile */
-        position: absolute;
-        top: 60px; /* Below the navbar */
-        right: 0;
-        width: 100%;
-        background: #090b0f; /* Match theme */
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px 0;
-        border-radius: 5px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
+    nav .nav-links {
+        flex-shrink: 0; /* Prevent shrinking of the nav links */
+        display: flex;
+        flex-direction: row; /* Arrange links horizontally */
+        gap: 10px; /* Add spacing between links */
     }
 
-    .nav-links.visible {
-        display: flex; /* Show menu when toggled */
-    }
-
-    .nav-links a {
-        text-align: center; /* Center-align menu items */
-        padding: 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional border for separation */
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none; /* Remove bottom border for last item */
+    nav .theme-button {
+        flex-shrink: 0; /* Prevent shrinking of the theme toggle button */
     }
 }
 

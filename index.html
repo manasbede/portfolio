@@ -284,23 +284,7 @@
     </div>    
     
 
-    <script>
-        
-        // Function to toggle the hamburger menu
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('visible'); // Toggle visibility
-        });
-
-        // Optional: Close menu when a link is clicked (for usability)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('visible');
-            });
-        });
-
+    <!-- <script>
         function toggleTheme() {
             const body = document.body;
             const themeButton = document.getElementById("theme-button");
@@ -311,6 +295,6 @@
                 themeButton.innerHTML = '<i class="fas fa-moon"></i>'; // Switch to dark mode icon
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>

@@ -776,6 +776,7 @@ body.dark-mode .experience-card ul {
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; /* Smooth transitions */
 }
 
 /* Skills Row */
@@ -784,6 +785,11 @@ body.dark-mode .experience-card ul {
     align-items: center;
     margin-bottom: 1.5rem;
     white-space: nowrap; /* Prevent text wrapping */
+}
+
+.skills-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode .skills-row h3 {
@@ -1043,6 +1049,8 @@ body.dark-mode .achievements-list li {
     }
 
     #menu-toggle {
+        left: 0;
+        position: relative;
         display: block; /* Only show hamburger on mobile */
         font-size: 1.5rem;
         color: #f3f4f6;
@@ -1054,6 +1062,8 @@ body.dark-mode .achievements-list li {
 
     .nav-links {
         width: 40%;
+        left: 2%;
+        /* top: 80%; */
         flex-direction: column; /* Stack links vertically */
         align-items: flex-start; /* Align links to the left */
         display: none; /* Hidden by default */
@@ -1122,6 +1132,31 @@ body.dark-mode .achievements-list li {
         margin: 0;
         padding: 0;
         background-color: #0e1115; /* Match background color */
+    }
+
+    .theme-menu-item {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .brand-name {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.5rem;
+        color: #f3f4f6;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .theme-button {
+        position: relative;
+        margin-left: auto;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
     }
 }
 

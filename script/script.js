@@ -1,98 +1,113 @@
-// Function to toggle the theme
-function toggleTheme() {
-    const body = document.body;
+// DOM Content Loaded
+document.addEventListener("DOMContentLoaded", function () {
+    // Hamburger Menu Toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    // Add event listener to menu button
+    menuToggle.addEventListener("click", function () {
+        // Toggle the 'visible' class to show/hide the nav-links
+        if (navLinks.classList.contains("visible")) {
+            navLinks.classList.remove("visible");
+        } else {
+            navLinks.classList.add("visible");
+        }
+    });
+
+    // Optional: Close the menu when clicking a link
+    navLinks.addEventListener("click", function () {
+        if (navLinks.classList.contains("visible")) {
+            navLinks.classList.remove("visible");
+        }
+    });
+
+    // Theme Toggle
     const themeButton = document.getElementById("theme-button");
-    body.classList.toggle("dark-mode");
-    if (body.classList.contains("dark-mode")) {
-        themeButton.innerHTML = '<i class="fas fa-sun"></i>'; // Switch to light mode icon
-    } else {
-        themeButton.innerHTML = '<i class="fas fa-moon"></i>'; // Switch to dark mode icon
-    }
-}
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default link behavior
-
-        // Extract the target section ID
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-            // Get the height of the navbar
-            const navBar = document.querySelector('nav');
-            const navBarHeight = navBar ? navBar.offsetHeight : 0;
-
-            // Calculate the offset position to scroll to
-            const targetPosition = targetElement.offsetTop - navBarHeight;
-
-            // Smooth scroll to the calculated position
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth',
-            });
+    themeButton.addEventListener("click", function () {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+        if (body.classList.contains("dark-mode")) {
+            themeButton.innerHTML = '<i class="fas fa-sun"></i>'; // Switch to light mode icon
         } else {
-            console.error(`Target element with ID "${targetId}" not found.`);
+            themeButton.innerHTML = '<i class="fas fa-moon"></i>'; // Switch to dark mode icon
         }
     });
-});
 
-// Typewriter effect for header text
-function typewriterEffect() {
-    const texts = [" Graduate Research Student ", " Software Developer "];
-    const typewriterElement = document.getElementById("typewriter-text");
-    let textIndex = 0; // Track the current text
-    let charIndex = 0; // Track the current character in the text
-    let isDeleting = false; // Flag to indicate typing or deleting
+    // Smooth Scrolling for Navigation Links
+    const navButtons = document.querySelectorAll("nav a");
+    navButtons.forEach((link) => {
+        link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
 
-    function type() {
-        // Determine the current text being typed
-        const currentText = texts[textIndex];
-        const displayedText = isDeleting
-            ? currentText.substring(0, charIndex--)
-            : currentText.substring(0, charIndex++);
+            if (targetElement) {
+                const navBar = document.querySelector("nav");
+                const navBarHeight = navBar ? navBar.offsetHeight : 0;
 
-        typewriterElement.textContent = displayedText;
-
-        // Set typing or deleting speed
-        const typingSpeed = isDeleting ? 50 : 100;
-
-        // Check if typing or deleting is complete
-        if (!isDeleting && charIndex === currentText.length) {
-            isDeleting = true;
-            setTimeout(type, 2000); // Pause for 2 seconds before deleting
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length; // Move to the next text
-            setTimeout(type, 500); // Pause for a brief moment before typing next text
-        } else {
-            setTimeout(type, typingSpeed); // Continue typing or deleting
-        }
-    }
-
-    type(); // Start the typewriter effect
-}
-
-// Hamburger menu toggle function
-function toggleMenu() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('visible'); // Toggle the visibility of the menu
-    });
-
-    // Close the menu when a navigation link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('visible'); // Close the menu
+                const targetPosition = targetElement.offsetTop - navBarHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: "smooth",
+                });
+            }
         });
     });
+
+    // Typewriter Effect
+    function typewriterEffect() {
+        const texts = ["Graduate Research Student ", "Software Developer "];
+        const typewriterElement = document.getElementById("typewriter-text");
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex];
+            const displayedText = isDeleting
+                ? currentText.substring(0, charIndex--)
+                : currentText.substring(0, charIndex++);
+
+            typewriterElement.textContent = displayedText;
+
+            const typingSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                isDeleting = true;
+                setTimeout(type, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(type, 500);
+            } else {
+                setTimeout(type, typingSpeed);
+            }
+        }
+
+        type();
+    }
+
+    // Initialize Typewriter Effect
+    typewriterEffect();
+});
+
+
+// Ensure about-left is visible on mobile
+function showAboutLeftOnMobile() {
+    const aboutLeft = document.querySelector('.about-left');
+    const aboutRight = document.querySelector('.about-right');
+
+    if (window.innerWidth <= 768) {
+        // Show about-left and hide about-right
+        if (aboutLeft) aboutLeft.style.display = 'block';
+        if (aboutRight) aboutRight.style.display = 'none';
+    } else {
+        // Reset visibility for desktop view
+        if (aboutLeft) aboutLeft.style.display = '';
+        if (aboutRight) aboutRight.style.display = '';
+    }
 }
 
-// Initialize functions when the page loads
-window.onload = function () {
-    typewriterEffect(); // Start the typewriter effect
-    toggleMenu(); // Initialize the hamburger menu toggle
-};
+// Add event listener to handle resizing
+window.addEventListener('resize', showAboutLeftOnMobile);
+window.addEventListener('load', showAboutLeftOnMobile);

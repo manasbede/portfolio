@@ -42,7 +42,7 @@ section:last-of-type {
     flex-grow: 1; /* Fill the remaining space */
     display: flex;
     flex-direction: column;
-    background: var(--section-bg, #f3f4f6);
+    background: var(--section-bg, #f9fafb);
 }
 
 
@@ -66,12 +66,13 @@ body.dark-mode nav {
     background: rgba(15, 23, 42, 0.95);
 }
 
+/* Navigation Bar */
 nav {
     position: fixed;
     top: 0;
     width: 100%;
     padding: 15px 20px;
-    background: #090b0f;
+    background: #131c2c;
     z-index: 10;
     display: flex;
     justify-content: space-between;
@@ -95,8 +96,8 @@ nav .brand-name {
     font-size: 1.5rem;
 }
 
-/* Desktop Navigation Links */
-nav .nav-links {
+/* Navigation Links - Default for Desktop */
+.nav-links {
     display: flex;
     list-style: none;
     gap: 20px;
@@ -104,7 +105,7 @@ nav .nav-links {
     padding: 0;
 }
 
-nav .nav-links a {
+.nav-links a {
     text-decoration: none;
     color: #f9fafb;
     padding: 5px 10px;
@@ -112,54 +113,66 @@ nav .nav-links a {
     transition: background 0.3s ease;
 }
 
-nav .nav-links a:hover {
+.nav-links a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Hamburger Menu Styles */
+/* Hamburger Menu Button - Hidden on Desktop */
 #menu-toggle {
-    display: none; /* Hidden by default for desktop */
+    display: none; /* Only show hamburger on mobile */
     font-size: 1.5rem;
     color: #f3f4f6;
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1100; /* Ensure it stays on top */
 }
 
-/* Show Hamburger Icon in Mobile */
-/* Header Container for Mobile View */
+/* Mobile View */
 @media (max-width: 768px) {
-    nav .container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start; /* Left-align the elements */
-        gap: 10px; /* Add space between items */
-        overflow-x: auto; /* Enable horizontal scrolling */
-        white-space: nowrap; /* Prevent wrapping */
-    }
-
-    nav .brand-name {
-        flex-shrink: 0; /* Prevent shrinking of the brand name */
-    }
-
+    /* Show Hamburger Menu Button */
     #menu-toggle {
-        flex-shrink: 0; /* Prevent shrinking of the menu toggle */
+        display: block;
     }
 
-    nav .nav-links {
-        flex-shrink: 0; /* Prevent shrinking of the nav links */
+    /* Hide Navigation Links by Default */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; /* Position below the navbar */
+        right: 20px;
+        flex-direction: column;
+        background: #090b0f;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    /* Show Links When Visible Class is Added */
+    .nav-links.visible {
         display: flex;
-        flex-direction: row; /* Arrange links horizontally */
-        gap: 10px; /* Add spacing between links */
+        flex-direction: column;
     }
 
-    nav .theme-button {
-        flex-shrink: 0; /* Prevent shrinking of the theme toggle button */
+    .nav-links a {
+        padding: 10px;
+        text-align: left;
     }
 }
 
+/* Theme Button */
+.theme-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.theme-button:hover {
+    color: #f59e0b;
+}
 
 
 
@@ -175,18 +188,6 @@ body.dark-mode .brand-name {
     color: #f3f4f6; /* Ensure brand name is visible in dark mode */
 }
 
-.theme-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5em;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-.theme-button:hover {
-    color: #f59e0b;
-}
 
 .hero {
     max-width: 600px;
@@ -785,13 +786,6 @@ body.dark-mode .experience-card ul {
     white-space: nowrap; /* Prevent text wrapping */
 }
 
-.skills-row h3 {
-    width: 20%; /* Fixed width for category titles */
-    font-size: 1.2rem;
-    color: var(--text-color-light); /* Theme-aware font color */
-    margin: 0;
-}
-
 body.dark-mode .skills-row h3 {
     color: var(--text-color-dark);
 }
@@ -799,11 +793,37 @@ body.dark-mode .skills-row h3 {
 /* Skills Icons Container */
 .skills-icons {
     display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    gap: 1rem; /* Space between items */
-    overflow-x: auto; /* Add horizontal scrolling if content overflows */
-    padding-bottom: 0.5rem;
+    flex-wrap: wrap; /* Allow wrapping when the container width is exceeded */
+    gap: 10px; /* Space between each icon */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Vertically center the icons */
+    padding: 10px 0; /* Add padding for better spacing */
+    width: 100%; /* Ensure it takes the full container width */
 }
+
+/* Individual Skill Items */
+.skills-icons img {
+    width: 50px; /* Set consistent width for icons */
+    height: 50px; /* Set consistent height for icons */
+    object-fit: contain; /* Ensure the icons maintain aspect ratio */
+}
+
+/* Skills Row */
+.skills-row {
+    display: flex;
+    flex-direction: row; /* Keep the title and icons in one row */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between the title and icons */
+}
+
+/* Skills Row Title */
+.skills-row h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    flex-shrink: 0; /* Prevent the title from shrinking */
+    width: auto;
+}
+
 
 .skills-icons::-webkit-scrollbar {
     height: 6px; /* Customize scrollbar height */
@@ -847,12 +867,20 @@ body.dark-mode .skills-icons span {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .skills-row {
+        flex-wrap: wrap; /* Allow wrapping of content */
+    }
+
     .skills-row h3 {
-        width: 100%; /* Titles take full width on small screens */
-        margin-bottom: 0.5rem;
+        width: 100%; /* Title takes up full width in mobile view */
+        text-align: left; /* Align the title to the left */
+        margin-bottom: 10px;
+    }
+
+    .skills-icons {
+        justify-content: flex-start; /* Align icons to the left */
     }
 }
-
 
 
 
@@ -981,3 +1009,119 @@ body.dark-mode .achievements-list li {
         font-size: 1.2rem; /* Reduce icon size on smaller screens */
     }
 }
+
+
+
+
+/*                      Testing Code                     */
+@media (max-width: 768px) {
+    /* General Reset for Mobile */
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    * {
+        box-sizing: border-box; /* Consistent box model */
+    }
+
+    /* Ensure consistent width for all sections */
+    section, header {
+        width: 100%; /* Increased width for all sections */
+        max-width: 100vw; /* Prevent overflow */
+        margin: 0 auto; /* Center align sections */
+    }
+
+    /* Navbar adjustments */
+    nav {
+        width: 100%; /* Navbar spans full width */
+        padding: 10px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Align menu toggle to the right */
+    }
+
+    #menu-toggle {
+        display: block; /* Only show hamburger on mobile */
+        font-size: 1.5rem;
+        color: #f3f4f6;
+        background: none;
+        border: none;
+        cursor: pointer;
+        resize: both;
+    }
+
+    .nav-links {
+        width: 40%;
+        flex-direction: column; /* Stack links vertically */
+        align-items: flex-start; /* Align links to the left */
+        display: none; /* Hidden by default */
+        background: #131c2c;
+    }
+
+    .nav-links.visible {
+        display: flex; /* Show links when visible class is added */
+    }
+
+    .nav-links a {
+        padding: 10px 15px; /* Adjust padding for better spacing */
+    }
+
+    /* Cards Adjustments */
+    .projects-container, .experience-container, .achievements-container, .skills-card {
+        width: 100%; /* Increased width for cards */
+        margin: 0 auto; /* Center align */
+    }
+
+    .project-card, .experience-card, .achievements-container {
+        width: 100%; /* Make cards take full width */
+        border-radius: 10px; /* Consistent border radius */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    }
+
+    /* Skill Section Adjustments */
+
+
+
+    .skills-row h3 {
+        width: 100%; /* Title takes up full width in mobile view */
+        text-align: left; /* Align the title to the left */
+        margin-bottom: 10px;
+    }
+
+    .skills-row {
+        flex-wrap: wrap; /* Enable wrapping */
+        justify-content: center; /* Center align skills */
+        gap: 15px; /* Space between items */
+    }
+
+    .skills-icons {
+        flex-wrap: wrap; /* Ensure skills are on multiple lines */
+        justify-content: flex-start; /* Flex Start align icons */
+        gap: 10px; /* Adjust gap between icons */
+        overflow: visible; /* Prevent scrolling */
+    }
+
+    .skills-icons img {
+        width: 50px; /* Adjust size for mobile */
+        height: 50px;
+    }
+
+    /* Achievements Section Adjustments */
+    .achievements-container {
+        padding: 10px; /* Add padding for better spacing */
+    }
+
+    .achievements-list li {
+        margin-bottom: 20px; /* Add spacing between items */
+    }
+
+    /* Fix White Line in Dark Mode */
+    body.dark-mode {
+        margin: 0;
+        padding: 0;
+        background-color: #0e1115; /* Match background color */
+    }
+}
+

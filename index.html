@@ -18,7 +18,7 @@
     <header id="home" class="section" style="padding-top: 80px;">
         <nav style="background: #131c2c;">
             <div class="container">
-                <a href="#home" class="brand brand-name" style="color: #f3f4f6;">Manas Bedekar</a>
+                <a href="#home" class="brand-name" style="color: #f3f4f6;">Manas Bedekar</a>
                 <button id="menu-toggle" class="menu-toggle">
                     <i class="fas fa-bars"></i> <!-- Hamburger Icon -->
                 </button>
@@ -296,44 +296,6 @@
             }
         }
     </script> -->
-    <script>
-        // Function to enforce visibility of nav and about-left only in mobile view
-        function displayNavAndAboutLeft() {
-            const header = document.querySelector('header');
-            const nav = document.querySelector('nav');
-            const aboutLeft = document.querySelector('.about-left');
-            const aboutRight = document.querySelector('.about-right');
-            const allOtherContent = Array.from(header.children).filter(
-                (child) => child !== nav && child !== aboutLeft
-            );
 
-            if (window.innerWidth <= 768) {
-                // Mobile view: Show nav and about-left, hide other header content
-                nav.style.display = 'flex'; // Ensure nav is visible
-                aboutLeft.style.display = 'block'; // Ensure about-left is visible
-                if (aboutRight) aboutRight.style.display = 'none'; // Hide about-right
-                allOtherContent.forEach((child) => {
-                    if (child !== nav && child !== aboutLeft) {
-                        child.style.display = 'none'; // Hide other header children
-                    }
-                });
-            } else {
-                // Desktop view: Restore visibility for all header content
-                nav.style.display = 'flex'; // Ensure nav remains visible
-                aboutLeft.style.display = ''; // Reset about-left visibility
-                if (aboutRight) aboutRight.style.display = ''; // Reset about-right visibility
-                allOtherContent.forEach((child) => {
-                    child.style.display = ''; // Reset visibility for other content
-                });
-            }
-        }
-
-        // Attach the function to resize and DOM load events
-        window.addEventListener('resize', displayNavAndAboutLeft);
-        window.addEventListener('DOMContentLoaded', displayNavAndAboutLeft);
-
-
-
-    </script>
 </body>
 </html>

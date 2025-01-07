@@ -298,34 +298,40 @@
     </script> -->
     <script>
         // Function to enforce visibility of nav and about-left only in mobile view
-        function enforceNavAndAboutLeftForMobile() {
+        function displayNavAndAboutLeft() {
             const header = document.querySelector('header');
             const nav = document.querySelector('nav');
             const aboutLeft = document.querySelector('.about-left');
-            const allHeaderContent = Array.from(header.children).filter(
+            const aboutRight = document.querySelector('.about-right');
+            const allOtherContent = Array.from(header.children).filter(
                 (child) => child !== nav && child !== aboutLeft
             );
 
             if (window.innerWidth <= 768) {
-                // Mobile view: Show only nav and about-left
+                // Mobile view: Show nav and about-left, hide other header content
                 nav.style.display = 'flex'; // Ensure nav is visible
-                if (aboutLeft) aboutLeft.style.display = 'block'; // Ensure about-left is visible
-                allHeaderContent.forEach((child) => {
-                    child.style.display = 'none'; // Hide other header content
+                aboutLeft.style.display = 'block'; // Ensure about-left is visible
+                if (aboutRight) aboutRight.style.display = 'none'; // Hide about-right
+                allOtherContent.forEach((child) => {
+                    if (child !== nav && child !== aboutLeft) {
+                        child.style.display = 'none'; // Hide other header children
+                    }
                 });
             } else {
-                // Desktop view: Show all header content
+                // Desktop view: Restore visibility for all header content
                 nav.style.display = 'flex'; // Ensure nav remains visible
-                if (aboutLeft) aboutLeft.style.display = ''; // Reset about-left visibility
-                allHeaderContent.forEach((child) => {
+                aboutLeft.style.display = ''; // Reset about-left visibility
+                if (aboutRight) aboutRight.style.display = ''; // Reset about-right visibility
+                allOtherContent.forEach((child) => {
                     child.style.display = ''; // Reset visibility for other content
                 });
             }
         }
 
-        // Add event listeners to handle window resize and initial load
-        window.addEventListener('resize', enforceNavAndAboutLeftForMobile);
-        window.addEventListener('DOMContentLoaded', enforceNavAndAboutLeftForMobile);
+        // Attach the function to resize and DOM load events
+        window.addEventListener('resize', displayNavAndAboutLeft);
+        window.addEventListener('DOMContentLoaded', displayNavAndAboutLeft);
+
 
 
     </script>

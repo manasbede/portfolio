@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Typewriter Effect
     function typewriterEffect() {
-        const texts = ["Graduate Research Student ", "Software Developer "];
+        const texts = [" Graduate Research Student ", " Software Developer "];
         const typewriterElement = document.getElementById("typewriter-text");
         let textIndex = 0;
         let charIndex = 0;

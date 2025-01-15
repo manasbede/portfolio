@@ -414,6 +414,9 @@ body.dark-mode {
 
 .bio-links-container h1 {
     margin: 0;  /* Remove any default margin for more precise control */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 
 .bio-links-container .subtitle {
